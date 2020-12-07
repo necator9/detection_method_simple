@@ -1,0 +1,9 @@
+*.pyc
+*.xml
+*.log
+*.csv
+*.idea/
+venv/
+build/
+dist/
+*.spec

@@ -1,0 +1,28 @@
+# General config file example
+
+log_level: 10  # Logging level: 10, 20 ... 50
+
+# Camera parameters
+device: demo/cars_night.mkv
+resolution: [320, 240]
+fps: 10
+
+out_dir: /tmp/car_night  # Logging directory (also resulting images are stored here )
+
+save_img: True  # Save images
+save_csv: True  # Save detection information
+stream: {enabled: False, server: rtsp://pusher:myrandompass@my_streaming_server:8554}  # Stream images to server
+
+clahe_limit: 3  # Pre-processing parameters - CLAHE contrast adjustment for grayscale images only (COLOR = 0)
+bgs_method: {name: MOG2, parameters: [50, 16, True]}  # Background subtraction parameters, args given in OpenCV order
+#bgs_method: {name: CNT, parameters: [1]}
+dilate_it: 1
+
+time_window: 200 # Timers parameters
+sl_conn: {detect_port: 35001, sl_port: 35000}  # Ports of this algorithm and SmartLighting applications
+lamp_on_criteria: [6, 2]  # Format [q, N]: On how many N frames out of the last q frames target objects have been detected
+
+cont_area_thr: 0.01  # Chosen 0.0005 Minimal object cnt area to be considered: object cnt area / RES[0] * RES[1] > cont_area_thr
+extent_thr: 0.2
+margin: 0  # Ignore objects intersecting frame margin: left img border + MARGIN < obj coordinates < right img border - MARGIN
+
